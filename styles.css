@@ -61,8 +61,8 @@ main {
     padding: 1.5rem 3rem;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #667eea;
-    background: #ffffff;
+    color: #ffffff;
+    background: #007bff;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -80,7 +80,7 @@ main {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
@@ -88,7 +88,7 @@ main {
 .click-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
 }
 
 .click-button:active {
