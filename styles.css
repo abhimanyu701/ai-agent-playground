@@ -30,6 +30,14 @@ header {
     animation: fadeInDown 0.8s ease-out;
 }
 
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 header h1 {
     color: #ffffff;
     font-size: 3rem;
@@ -42,6 +50,31 @@ header h1 {
     color: #f0f0f0;
     font-size: 1.2rem;
     font-weight: 300;
+}
+
+/* Logout Button */
+.logout-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:active {
+    transform: translateY(0);
 }
 
 /* Main Content */
@@ -156,6 +189,11 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header-content {
+        justify-content: center;
+        text-align: center;
+    }
+    
     header h1 {
         font-size: 2rem;
     }
@@ -186,5 +224,10 @@ footer {
     
     .counter {
         font-size: 1rem;
+    }
+    
+    .logout-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
     }
 }
