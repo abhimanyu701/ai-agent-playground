@@ -1,9 +1,56 @@
+// Check authentication status
+function checkAuthentication() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const sessionUser = sessionStorage.getItem('currentUser');
+    const rememberedUser = localStorage.getItem('currentUser');
+    
+    if (isLoggedIn !== 'true' || (!sessionUser && !rememberedUser)) {
+        // Redirect to login page
+        window.location.href = 'login.html';
+        return false;
+    }
+    
+    // Show logout button and display username
+    const logoutButton = document.getElementById('logoutButton');
+    if (logoutButton) {
+        logoutButton.style.display = 'block';
+        const username = sessionUser || rememberedUser;
+        console.log(`Welcome back, ${username}! 👋`);
+    }
+    
+    return true;
+}
+
+// Handle logout
+function handleLogout() {
+    // Clear authentication data
+    localStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('currentUser');
+    // Keep remembered username if "Remember me" was checked
+    // localStorage.removeItem('currentUser'); // Uncomment to clear remembered username
+    
+    // Redirect to login page
+    window.location.href = 'login.html';
+}
+
+// Initialize authentication check
+if (!checkAuthentication()) {
+    // Stop script execution if not authenticated
+    throw new Error('Authentication required');
+}
+
 // Initialize click counter
 let clickCount = 0;
 
 // Get DOM elements
 const clickButton = document.getElementById('clickButton');
 const clickCounter = document.getElementById('clickCounter');
+const logoutButton = document.getElementById('logoutButton');
+
+// Logout button event listener
+if (logoutButton) {
+    logoutButton.addEventListener('click', handleLogout);
+}
 
 // Button click event handler
 clickButton.addEventListener('click', function() {
